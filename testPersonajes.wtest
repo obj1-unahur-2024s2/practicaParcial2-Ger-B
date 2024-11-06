@@ -1,0 +1,44 @@
+import personajes.*
+
+const humano1 = new Humano(fuerza = 10, inteligencia = 10 , rol = guerrero )
+const humano2 = new Humano(fuerza = 100, inteligencia = 10 , rol = cazador1 )
+const humano3 = new Humano(fuerza = 50, inteligencia = 10 , rol = brujo)
+
+const orco1 = new Orco(fuerza = 40, rol = guerrero )
+const orco2 = new Orco(fuerza = 2, rol = cazador2 )
+const orco3 = new Orco(fuerza = 5, rol = brujo )
+
+const cazador1 = new Cazador(mascota = new Mascota(fuerza = 30, edad = 12, tieneGarras = true))
+const cazador2 = new Cazador(mascota = new Mascota(fuerza = 10, edad = 3, tieneGarras = false))
+
+describe "Test para punto 1" {
+  test "Compruebo el rol de los personajes" {
+    assert.equals(guerrero, humano1.rol())
+    assert.equals(cazador2, orco2.rol())
+    assert.equals(brujo, humano3.rol())
+  }
+  test "Los personajes pueden cambiar de rol" {
+    humano1.rol(brujo)
+    assert.equals(brujo, humano1.rol())
+  }
+  test "Potencial de ataque de los humanos" {
+    assert.equals(200, humano1.potencialOfencivo())
+    assert.equals(1060, humano2.potencialOfencivo())
+    assert.equals(500, humano3.potencialOfencivo())
+  }
+
+  test "Potencial de ataque de los orcos" {
+    assert.equals(550, orco1.potencialOfencivo())
+    assert.equals(33, orco2.potencialOfencivo())
+    assert.equals(55, orco3.potencialOfencivo())    
+  }
+
+}
+
+/*
+describe "tests para el punto 2" {
+  test "description" {
+    
+  }
+}
+*/
